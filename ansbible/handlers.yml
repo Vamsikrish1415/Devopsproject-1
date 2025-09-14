@@ -1,0 +1,15 @@
+--- # installing httpd
+ - hosts: all
+   user: ansible
+   become: yes
+   connection: ssh
+
+   tasks:
+     - name: installing httpd into webservers
+       action: yum name=httpd state=installed
+       notify: start HTTPD service
+
+
+   handlers:
+      - name: start HTTPD service
+        action: service name=httpd state=started 

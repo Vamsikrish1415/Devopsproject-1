@@ -1,0 +1,13 @@
+---
+- name: installing multiple softwres
+  hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+     - name: installing mutilple softwares
+       yum:
+         name: ['git','docker','tree','java']
+         state: installed

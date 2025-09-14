@@ -1,0 +1,20 @@
+---
+ - name: installing httpd package
+   user: ansible
+   hosts: all
+   become: true
+
+
+   tasks:
+     - name: installing httpd package
+       yum :
+         name: httpd
+         state: installed
+       when: ansible_os_family == "RedHat"
+
+     - name: start httpd service
+       service:
+         name: httpd
+         state: started
+       when: ansible_os_family == "RedHat"  
+

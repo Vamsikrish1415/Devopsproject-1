@@ -1,0 +1,15 @@
+--- # creating file
+  - hosts: all
+    user: ansible
+    become: yes
+    connection: ssh
+
+    tasks:
+      - name: creating a file with ansible playbook
+        file: path=/tmp/vamsifile.txt state=touch
+
+      - name: creating a folder using ansible playbook
+        file: path=/tmp/vamsidir state=directory
+
+      - name: copying a file to hosts
+        copy: src=./mumbaifile dest=/home/ansible 
